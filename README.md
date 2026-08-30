@@ -61,7 +61,7 @@ The Java Bridge runs on a VPN-connected machine and exposes controlled HTTP endp
 
 YouTube Demo:
 
-[Watch the 3-minute demo](YOUR_YOUTUBE_LINK)
+https://youtu.be/QZWCxp7WQrI
 
 ---
 
