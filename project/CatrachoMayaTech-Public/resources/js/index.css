@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Carbon ground — dark, faintly blue, not pure black */
+  --color-carbon-950: #0a0e12;
+  --color-carbon-900: #0e141a;
+  --color-carbon-850: #121a22;
+  --color-carbon-800: #18222c;
+  --color-carbon-700: #223040;
+  --color-carbon-600: #2f4152;
+
+  /* Cool high-contrast greys */
+  --color-slate-txt: #d7e0e8;
+  --color-slate-dim: #8ca0b3;
+  --color-slate-faint: #5c6f81;
+
+  /* Phosphor green — 5250 "all OK" / active data */
+  --color-phosphor: #43e089;
+  --color-phosphor-dim: #2c9a5f;
+  --color-phosphor-glow: rgba(67, 224, 137, 0.14);
+
+  /* Industrial amber — detected differences / warnings */
+  --color-amber-warn: #f5a623;
+  --color-amber-dim: #a86f14;
+
+  /* Alarm red — active production incidents only */
+  --color-alarm: #ff4d4d;
+  --color-alarm-dim: #b52d2d;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-carbon-950);
+  color: var(--color-slate-txt);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Faint operations-room grid on the ground */
+.ops-ground {
+  background-color: var(--color-carbon-950);
+  background-image:
+    linear-gradient(rgba(47, 65, 82, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 65, 82, 0.14) 1px, transparent 1px);
+  background-size: 46px 46px;
+}
+
+/* Scanline texture for terminal blocks */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(67, 224, 137, 0.035) 0px,
+    rgba(67, 224, 137, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.phosphor-text {
+  text-shadow: 0 0 6px var(--color-phosphor-glow);
+}
+
+/* Hide scrollbars until scrolling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+*:hover::-webkit-scrollbar-thumb,
+*:focus::-webkit-scrollbar-thumb {
+  background-color: var(--color-carbon-700);
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes pulse-alarm {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulse-alarm {
+  animation: pulse-alarm 1.4s ease-in-out infinite;
+}
